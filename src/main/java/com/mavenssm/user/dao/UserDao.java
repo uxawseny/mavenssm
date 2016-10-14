@@ -25,7 +25,7 @@ public interface UserDao {
                     @Result(column = "modify_time", property = "modifyTime"),
                     @Result(column = "is_delete", property = "isDelete")
             })
-    @Select("SELECT*FROM t_user")
+    @Select("SELECT user_name, user_phone FROM t_user")
     List<User> getAllUser();
 
 
