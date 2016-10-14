@@ -14,22 +14,20 @@ import java.util.List;
 /**
  * UserController
  */
-
 @Controller
 @RequestMapping("/user")
 public class UserController {
     private Logger log = Logger.getLogger(UserController.class);
     @Resource
     private IUserService userService;
+
     @RequestMapping("/showUser")
-    public String showUser(HttpServletRequest request, Model model){
+    public String showUser(HttpServletRequest request, Model model) {
         log.info("查询所有用户信息");
         List<User> userList = userService.getAllUser();
-        model.addAttribute("userList",userList);
+        model.addAttribute("userList", userList);
         return "showUser";
     }
-
-
 
 
 }

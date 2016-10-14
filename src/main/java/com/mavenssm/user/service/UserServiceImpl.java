@@ -13,11 +13,13 @@ import java.util.List;
  */
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class UserServiceImpl implements IUserService{
+public class UserServiceImpl implements IUserService {
     @Resource
     private UserDao userdao;
+
     /**
      * 查询所有用户信息
+     *
      * @return 用户信息列表
      */
     public List<User> getAllUser() {
