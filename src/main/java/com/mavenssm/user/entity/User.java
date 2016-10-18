@@ -1,5 +1,10 @@
 package com.mavenssm.user.entity;
 
+import javax.persistence.Cacheable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.ws.rs.FormParam;
 import java.util.Date;
 
 /**
@@ -14,16 +19,27 @@ import java.util.Date;
  * modifyTime 修改时间
  * isDelete 是否已删除
  */
+@Entity
+@Cacheable
+@Table(name = "t_user")
 public class User {
-
+    @Column(name = "id")
     private Integer id;
+    @Column(name = "user_name")
     private String userName;
+    @Column(name = "user_phone")
     private String userPhone;
+    @Column(name = "user_email")
     private String userEmail;
+    @Column(name = "user_pwd")
     private String userPwd;
+    @Column(name = "pwd_salt")
     private String pwdSalt;
+    @Column(name = "create_time")
     private Date createTime;
+    @Column(name = "modify_time")
     private Date modifyTime;
+    @Column(name = "is_delete")
     private Integer isDelete;
 
     public Integer getId() {
@@ -96,20 +112,5 @@ public class User {
 
     public void setIsDelete(Integer isDelete) {
         this.isDelete = isDelete;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", userPhone='" + userPhone + '\'' +
-                ", userEmail='" + userEmail + '\'' +
-                ", userPwd='" + userPwd + '\'' +
-                ", pwdSalt='" + pwdSalt + '\'' +
-                ", createTime=" + createTime +
-                ", modifyTime=" + modifyTime +
-                ", isDelete=" + isDelete +
-                '}';
     }
 }

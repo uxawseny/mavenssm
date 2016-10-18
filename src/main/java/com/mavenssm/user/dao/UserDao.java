@@ -11,9 +11,22 @@ import java.util.List;
 /**
  * UserDao
  */
-@Repository
+@Repository("userDao")
 public interface UserDao {
-    @Results(
+
+
+    /**
+     * 查询所有用户
+     */
+    @Select("SELECT userName, userPhone FROM User")
+    List<User> getAllUser();
+
+    /**
+     * 按照用户名查询是否有该用户
+     */
+        @Select("SELECT * FROM User WHERE userName=#{userName}")
+
+    /*@Results(
             {
                     @Result(id = true, column = "id", property = "id"),
                     @Result(column = "user_name", property = "userName"),
@@ -24,9 +37,9 @@ public interface UserDao {
                     @Result(column = "create_time", property = "createTime"),
                     @Result(column = "modify_time", property = "modifyTime"),
                     @Result(column = "is_delete", property = "isDelete")
-            })
-    @Select("SELECT user_name, user_phone FROM t_user")
-    List<User> getAllUser();
+            })*/
+    User getUserByName(String userName);
+
 
 
 }

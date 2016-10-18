@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -29,5 +30,16 @@ public class UserController {
         return "showUser";
     }
 
+    @RequestMapping("/login")
+    public String login(User user,Model model) throws Exception {
+        log.info("用户登录后台校验");
+        user = userService.checkLogin(user.getUserName(),user.getUserPwd());
+        if (user != null){
+            model.addAttribute(user);
+            return "welcome";
+        }
+        return "fail";
+
+    }
 
 }
