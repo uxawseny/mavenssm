@@ -23,7 +23,7 @@ import java.util.Date;
 @Cacheable
 @Table(name = "t_user")
 public class User {
-    @Column(name = "id")
+    @FormParam("id")
     private Integer id;
     @Column(name = "user_name")
     private String userName;
