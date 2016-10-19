@@ -4,6 +4,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>用户登录</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/signin.css" rel="stylesheet">
 </head>
 
 <body>
@@ -13,6 +15,7 @@
     <input type="password" id="userPwd" name="userPwd"/>
     <input type="submit" value="提交" id="login" />
 </form>
+
 </body>
 
 </html>
