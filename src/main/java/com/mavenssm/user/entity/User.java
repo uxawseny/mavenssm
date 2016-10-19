@@ -19,23 +19,22 @@ import java.util.Date;
  * modifyTime 修改时间
  * isDelete 是否已删除
  */
-@Entity
-@Cacheable
-@Table(name = "t_user")
+/*@Entity
+@Table(name = "t_user")*/
 public class User {
-    @FormParam("id")
+    //@Column(name = "id")
     private Integer id;
-    @Column(name = "user_name")
+    //@Column(name = "user_name")
     private String userName;
-    @Column(name = "user_phone")
+   // @Column(name = "user_phone")
     private String userPhone;
-    @Column(name = "user_email")
+   // @Column(name = "user_email")
     private String userEmail;
-    @Column(name = "user_pwd")
+   // @Column(name = "user_pwd")
     private String userPwd;
-    @Column(name = "pwd_salt")
+   // @Column(name = "pwd_salt")
     private String pwdSalt;
-    @Column(name = "create_time")
+    //@Column(name = "create_time")
     private Date createTime;
     @Column(name = "modify_time")
     private Date modifyTime;

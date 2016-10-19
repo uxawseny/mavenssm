@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -14,19 +15,17 @@ import java.util.List;
 @Repository("userDao")
 public interface UserDao {
 
-
     /**
      * 查询所有用户
      */
-    @Select("SELECT userName, userPhone FROM User")
+   // @Select("SELECT userName, userPhone FROM User")
     List<User> getAllUser();
 
     /**
      * 按照用户名查询是否有该用户
      */
-        @Select("SELECT * FROM User WHERE userName=#{userName}")
-
-    /*@Results(
+   // @Select("SELECT * FROM t_user WHERE user_name=#{userName}")
+   /* @Results(
             {
                     @Result(id = true, column = "id", property = "id"),
                     @Result(column = "user_name", property = "userName"),
@@ -38,8 +37,8 @@ public interface UserDao {
                     @Result(column = "modify_time", property = "modifyTime"),
                     @Result(column = "is_delete", property = "isDelete")
             })*/
-    User getUserByName(String userName);
 
+    User getUserByName(String userName);
 
 
 }
