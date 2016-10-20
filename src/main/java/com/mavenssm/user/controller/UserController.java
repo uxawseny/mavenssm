@@ -30,16 +30,34 @@ public class UserController {
         return "showUser";
     }
 
+    /**
+     * 登录页面访问
+     * @return 登录页面
+     */
+    @RequestMapping("/loginPage")
+    public String loginPage() {
+        return "login";
+    }
+
+    /**
+     * 登录校验
+     * @param user 用户
+     * @param model .
+     * @return 登录成功/失败页面
+     * @throws Exception
+     */
     @RequestMapping("/login")
     public String login(User user,Model model) throws Exception {
-        log.info("用户登录后台校验");
-        user = userService.checkLogin(user.getUserName(),user.getUserPwd());
-        if (user != null){
-            model.addAttribute(user);
-            return "welcome";
-        }
-        return "fail";
 
+            log.info("用户登录后台校验");
+            user = userService.checkLogin(user.getUserName(),user.getUserPwd());
+            if (user == null) {
+                // 登录失败
+                return "login";
+            }else{
+                model.addAttribute(user);
+                return "welcome";
+            }
     }
 
 }

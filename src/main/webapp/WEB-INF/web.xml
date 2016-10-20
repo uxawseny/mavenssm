@@ -41,7 +41,6 @@
         <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
     </listener>
 
-
     <!-- spring mvc servlet-->
     <servlet>
         <servlet-name>SpringMVC</servlet-name>
@@ -59,8 +58,25 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <!--对静态资源的访问-->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.jpg</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.png</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
+
+
     <welcome-file-list>
-        <welcome-file>/index.html</welcome-file>
+        <welcome-file>/index.jsp</welcome-file>
     </welcome-file-list>
 
     <!-- session配置 -->
