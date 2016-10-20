@@ -25,7 +25,7 @@
 <body oncontextmenu="return false">
 
 <div class="page-container">
-    <h1>登录</h1>
+    <h1>LOGIN AI SPACE</h1>
     <form action="${pageContext.request.contextPath}/user/login" method="post">
         <div>
             <input type="text" id="username" name="userName" class="username" placeholder="Username" autocomplete="off"/>
