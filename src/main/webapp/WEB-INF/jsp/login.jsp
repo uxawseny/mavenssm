@@ -4,10 +4,11 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Fullscreen Login</title>
+    <title>I AM NOT AI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="${pageContext.request.contextPath}/images/ico2.ico" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reset.css">
