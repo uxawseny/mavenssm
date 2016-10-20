@@ -1,7 +1,5 @@
 jQuery(function($){
     $.supersized({
-
-
         // Functionality
         slide_interval     : 6000,    // Length between transitions
         transition         : 1,    // 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
@@ -16,7 +14,6 @@ jQuery(function($){
         fit_always         : 0,    // Image will never exceed browser width or height (Ignores min. dimensions)
         fit_portrait       : 1,    // Portrait images will not exceed browser height
         fit_landscape      : 0,    // Landscape images will not exceed browser width
-
         // Components
         slide_links        : 'blank',    // Individual links for each slide (Options: false, 'num', 'name', 'blank')
         slides             : [    // Slideshow Images
@@ -25,7 +22,6 @@ jQuery(function($){
                                  {image : './images/2.jpg'},
                                  {image : './images/1.jpg'}
                              ]
-
     });
 
 });
