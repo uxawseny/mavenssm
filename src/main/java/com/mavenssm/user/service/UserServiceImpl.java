@@ -53,4 +53,14 @@ public class UserServiceImpl implements IUserService {
     public void userRegister(User user) {
         userdao.addUser(user);
     }
+
+    /**
+     * 根据注册邮箱找回账号密码
+     * @param email 用户邮箱
+     * @return 账号密码
+     */
+    @Override
+    public String findPwd(String email) {
+        return userdao.getPwdByEmail(email);
+    }
 }

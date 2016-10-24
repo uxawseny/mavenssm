@@ -23,7 +23,7 @@
 <body oncontextmenu="return false">
 
 <div class="page-container">
-    <h1>LOGIN AI SPACE</h1>
+    <h1>SIGN IN AI SPACE</h1>
     <form action="${pageContext.request.contextPath}/user/login" method="post">
         <div>
             <input type="text" id="username" name="userName" class="username" placeholder="Name" autocomplete="off"/>
@@ -35,8 +35,8 @@
 
         <div id="btnlink">
 
-                <a id="register" href="${pageContext.request.contextPath}/user/registerPage">注册</a>
-                <a id="forgotpwd" href="">忘记密码?</a>
+                <a id="register" href="${pageContext.request.contextPath}/user/registerPage">Sign up</a>
+                <a id="forgotpwd" href="${pageContext.request.contextPath}/user/findPwdPage">Forgot password?</a>
         </div>
 
     </form>

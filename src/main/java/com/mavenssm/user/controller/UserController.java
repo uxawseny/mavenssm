@@ -53,7 +53,7 @@ public class UserController {
             user = userService.checkLogin(user.getUserName(),user.getUserPwd());
             if (user == null) {
                 // 登录失败
-                return "redirect:/";
+                return "redirect:loginPage";
             }else{
                 model.addAttribute(user);
                 return "welcome";
@@ -78,6 +78,25 @@ public class UserController {
         userService.userRegister(user);
         return "redirect:/";
 
+    }
+
+    @RequestMapping("/findPwdPage")
+    public String findPwd() throws Exception{
+        return "findPwdPage";
+    }
+
+    /**
+     * 根据注册邮箱找回账号密码
+     * @param emil 注册邮箱
+     * @param model 模型
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/findPwd")
+    public String findPwd(String emil,Model model) throws Exception{
+        log.info("根据注册邮箱找回账号密码");
+        userService.findPwd(emil);
+        return "findPwd";
     }
 
 }

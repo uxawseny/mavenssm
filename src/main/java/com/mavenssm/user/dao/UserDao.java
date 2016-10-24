@@ -46,5 +46,12 @@ public interface UserDao {
      */
     void addUser(User user);
 
+    /**
+     * 根据邮箱找回用户密码
+     * @param Email 用户邮箱
+     * @return 账号密码
+     */
+    String getPwdByEmail(String Email);
+
 
 }

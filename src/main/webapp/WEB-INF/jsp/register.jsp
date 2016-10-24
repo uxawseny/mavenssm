@@ -23,7 +23,7 @@
 <body oncontextmenu="return false">
 
 <div class="page-container">
-    <h1>SING UP AI SPACE</h1>
+    <h1>JOIN IN AI SPACE</h1>
     <form action="${pageContext.request.contextPath}/user/register" method="post">
         <div>
             <input type="text" id="username" name="userName" class="username" placeholder="Name" autocomplete="off"/>
@@ -37,7 +37,7 @@
         <div>
             <input type="text" id="userEmail" name="userEmail" class="userEmail" placeholder="Email" oncontextmenu="return false" onpaste="return false" />
         </div>
-        <button id="submit" type="submit">Sign up</button>
+        <button id="submit" type="submit">Sign up for AI space</button>
     </form>
     <div class="connect">
         <p>If we can only encounter each other rather than stay with each other,then I wish we had never encountered.</p>

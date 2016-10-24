@@ -29,6 +29,13 @@ public interface IUserService {
      */
     void userRegister(User user);
 
+    /**
+     * 根据注册邮箱找回账户密码
+     * @param email 用户邮箱
+     * @return 账户密码
+     */
+    String findPwd(String email);
+
 
 
 }
