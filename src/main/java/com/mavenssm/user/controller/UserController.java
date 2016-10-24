@@ -42,7 +42,7 @@ public class UserController {
     /**
      * 登录校验
      * @param user 用户
-     * @param model .
+     * @param model 模型
      * @return 登录成功/失败页面
      * @throws Exception
      */
