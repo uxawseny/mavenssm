@@ -14,12 +14,19 @@
         <result column="is_delete" property="isDelete" jdbcType="SMALLINT"/>
     </resultMap>
 
+     <!--查询所有用户信息-->
     <select id="getAllUser" resultMap="UserBaseMap">
         SELECT * FROM t_user
     </select>
-
+     <!--根据用户名查询用户信息-->
     <select id="getUserByName" resultMap="UserBaseMap">
         SELECT * FROM t_user WHERE user_name=#{userName}
     </select>
+    <!--增加用户-->
+    <insert id="addUser" parameterType="com.mavenssm.user.entity.User">
+        INSERT INTO t_user (user_name,user_pwd,user_phone,user_email) VALUES(
+        #{userName},#{userPwd},#{userPhone},#{userEmail})
+
+    </insert>
 
 </mapper>

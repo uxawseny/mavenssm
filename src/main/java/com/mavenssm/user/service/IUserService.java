@@ -23,6 +23,12 @@ public interface IUserService {
      */
     User checkLogin(String userName,String userPwd);
 
+    /**
+     * 用户注册
+     * @param user 用户
+     */
+    void userRegister(User user);
+
 
 
 }

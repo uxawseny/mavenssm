@@ -60,4 +60,24 @@ public class UserController {
             }
     }
 
+    @RequestMapping("/registerPage")
+    public String registerPage() {
+        return "register";
+    }
+
+    /**
+     * 用户注册
+     * @param user 用户
+     * @param model 模型
+     * @return 主页
+     * @throws Exception
+     */
+    @RequestMapping("/register")
+    public String register(User user,Model model) throws Exception{
+        log.info("用户注册");
+        userService.userRegister(user);
+        return "redirect:/";
+
+    }
+
 }

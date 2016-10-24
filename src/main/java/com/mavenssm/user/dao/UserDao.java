@@ -40,5 +40,11 @@ public interface UserDao {
 
     User getUserByName(String userName);
 
+    /**
+     * 增加用户
+     * @param user 用户
+     */
+    void addUser(User user);
+
 
 }

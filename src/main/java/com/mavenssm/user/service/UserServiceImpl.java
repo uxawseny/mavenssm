@@ -45,4 +45,12 @@ public class UserServiceImpl implements IUserService {
         return null;
     }
 
+    /**
+     * 用户注册
+     * @param user 用户
+     */
+    @Override
+    public void userRegister(User user) {
+        userdao.addUser(user);
+    }
 }
