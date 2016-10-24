@@ -26,7 +26,7 @@
     <h1>JOIN IN AI SPACE</h1>
     <form action="${pageContext.request.contextPath}/user/register" method="post">
         <div>
-            <input type="text" id="username" name="userName" class="username" placeholder="Name" autocomplete="off"/>
+            <input type="text" id="userName" name="userName" class="userName" placeholder="userName" autocomplete="off"/>
         </div>
         <div>
             <input type="password" id="password" name="userPwd" class="password" placeholder="Password" oncontextmenu="return false" onpaste="return false" />

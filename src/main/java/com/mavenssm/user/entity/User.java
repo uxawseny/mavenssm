@@ -112,4 +112,19 @@ public class User {
     public void setIsDelete(Integer isDelete) {
         this.isDelete = isDelete;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userPwd='" + userPwd + '\'' +
+                ", pwdSalt='" + pwdSalt + '\'' +
+                ", createTime=" + createTime +
+                ", modifyTime=" + modifyTime +
+                ", isDelete=" + isDelete +
+                '}';
+    }
 }

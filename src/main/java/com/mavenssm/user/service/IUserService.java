@@ -25,9 +25,8 @@ public interface IUserService {
 
     /**
      * 用户注册
-     * @param user 用户
      */
-    void userRegister(User user);
+    void userRegister(String userName,String userPwd,String userPhone,String userEmail);
 
     /**
      * 根据注册邮箱找回账户密码
