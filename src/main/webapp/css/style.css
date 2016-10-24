@@ -33,9 +33,9 @@ form {
 }
 
 input {
-    width: 270px;
-    height: 42px;
-    line-height: 42px;
+    width: 300px;
+    height: 44px;
+    line-height: 44px;
     margin-top: 25px;
     padding: 0 15px;
     background: #2d2d2d; /* browsers that don't support rgba */
@@ -127,6 +127,25 @@ button:active {
     0 1px 4px 0 rgba(0, 0, 0, .1);
 
     border: 0px solid #ef4300;
+}
+
+#btnlink{
+    margin-top: 10px;
+}
+#register{
+    color: #fff;
+    margin-right: 80px;
+    left: 0px;
+    font-size: x-small;
+
+
+}
+#forgotpwd{
+    color: #fff;
+    font-size: x-small;
+}
+a{
+    text-decoration: none;
 }
 
 .connect {
