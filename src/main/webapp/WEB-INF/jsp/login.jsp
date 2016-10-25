@@ -46,8 +46,8 @@
     </div>
 </div>
 <div class="alert" style="display:none">
-    <h2 style="background-color: rgba(255, 5, 67, 0.9);">消息</h2>
-    <div class="alert_con" style="background-color: rgba(255, 255, 255, 0.8);">
+    <h2 >消息</h2>
+    <div class="alert_con" >
         <p id="ts"></p>
         <p style="line-height:70px"><a class="btn">确定</a></p>
     </div>
@@ -71,8 +71,11 @@
             return false;
         }
         else{
+            /*用户名正则 只能输入5-20个以字母开头、可带数字、“_”的字串 */
             var reg = /^[a-zA-Z]{1}([a-zA-Z0-9]|[_]){4,19}$/;
-            var reg2 = /^[0-9A-Za-z]+$/;
+            /*至少6位数字或字母*/
+            var reg2 = /^[0-9A-Za-z]{6,}$/;
+            /*/^[0-9A-Za-z]+$/;*/
             if(!reg.exec(u.val()))
             {
                 $("#ts").html("用户名错误");
