@@ -1,12 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>welcome</title>
+    <title>error</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/zzsc.css">
 </head>
 <body>
 <body>
-<h1>欢迎！</h1>
+<h1>出现问题了</h1>
 <div class="container">
     <div class="item" id="pink">
         <div class="chewing">

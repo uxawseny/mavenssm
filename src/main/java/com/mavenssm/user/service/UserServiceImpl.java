@@ -47,10 +47,11 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * 用户注册
+     * @param user 用户
      */
     @Override
-    public void userRegister(String userName,String userPwd,String userPhone,String userEmail) {
-        userdao.addUser(userName,userPwd,userPhone,userEmail);
+    public void userRegister(User user) {
+        userdao.addUser(user);
     }
 
     /**

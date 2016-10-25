@@ -50,10 +50,10 @@ public class UserController {
     public String login(User user,Model model) throws Exception {
 
             log.info("用户登录后台校验");
-            user = userService.checkLogin(user.getUserName().trim(),user.getUserPwd().trim());
+            user = userService.checkLogin(user.getUserName(),user.getUserPwd());
             if (user == null) {
                 // 登录失败
-                return "login";
+                return "redirect:loginPage";
             }else{
                 model.addAttribute(user);
                 return "welcome";
@@ -75,13 +75,11 @@ public class UserController {
     @RequestMapping("/register")
     public String register(User user,Model model) throws Exception{
         log.info("用户注册");
-        if (user == null){
-            return "redirect:registerPage";
-        }else {
-            userService.userRegister(user.getUserName(),user.getUserPwd(),user.getUserPhone(),user.getUserEmail());
+        if (user.getUserName().trim().length() > 0 || user.getUserPwd().trim().length() > 0 || user.getUserPhone().trim().length() > 0 || user.getUserEmail().trim().length() > 0){
+            userService.userRegister(user);
             return "welcome";
-        }
-
+        }else
+            return "error";
     }
 
     @RequestMapping("/findPwdPage")

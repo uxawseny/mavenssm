@@ -42,8 +42,9 @@ public interface UserDao {
 
     /**
      * 增加用户
+     * @param user 用户
      */
-    void addUser(String userName,String userPwd,String userPhone,String userEmail);
+    void addUser(User user);
 
     /**
      * 根据邮箱找回用户密码
