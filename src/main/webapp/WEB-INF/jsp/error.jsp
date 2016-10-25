@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>error</title>
+    <link rel="icon" href="${pageContext.request.contextPath}/images/ico2.ico" />
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/zzsc.css">
 </head>
 <body>

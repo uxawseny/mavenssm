@@ -3,6 +3,7 @@
 <head>
     <title>welcome</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/zzsc.css">
+    <link rel="icon" href="${pageContext.request.contextPath}/images/ico2.ico" />
 </head>
 <body>
 <body>

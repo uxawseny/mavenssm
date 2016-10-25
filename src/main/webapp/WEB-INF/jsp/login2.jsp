@@ -7,6 +7,7 @@
     <%--取出部署的应用程序名--%>
     <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/signin.css" rel="stylesheet">
+    <link rel="icon" href="${pageContext.request.contextPath}/images/ico2.ico" />
 </head>
 
 <body>

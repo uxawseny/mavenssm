@@ -4,6 +4,7 @@
 <html>
 <head>
     <title>用户信息列表</title>
+    <link rel="icon" href="${pageContext.request.contextPath}/images/ico2.ico" />
 </head>
 <body>
     <c:if test="${!empty userList}">
