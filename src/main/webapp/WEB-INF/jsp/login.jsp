@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="${pageContext.request.contextPath}/images/ico2.ico" />
 
-    <!-- CSS -->
+    <!--  CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reset.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/supersized.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
