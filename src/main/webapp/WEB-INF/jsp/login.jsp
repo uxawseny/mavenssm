@@ -46,8 +46,8 @@
     </div>
 </div>
 <div class="alert" style="display:none">
-    <h2>消息</h2>
-    <div class="alert_con">
+    <h2 style="background-color: rgba(255, 5, 67, 0.9);">消息</h2>
+    <div class="alert_con" style="background-color: rgba(255, 255, 255, 0.8);">
         <p id="ts"></p>
         <p style="line-height:70px"><a class="btn">确定</a></p>
     </div>
