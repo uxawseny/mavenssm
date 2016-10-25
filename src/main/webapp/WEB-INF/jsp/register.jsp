@@ -60,20 +60,45 @@
     $(".btn").click(function(){
         is_hide();
     })
-    var u = $("input[name=username]");
-    var p = $("input[name=password]");
+    var u = $("input[name=userName]");
+    var p = $("input[name=userPwd]");
+    var pe = $("input[name=userPhone]");
+    var em = $("input[name=userEmail]");
     $("#submit").live('click',function(){
         if(u.val() == '' || p.val() =='')
         {
             $("#ts").html("用户名或密码不能为空~");
             is_show();
             return false;
+        }else if(pe.val() == '' || em.val() ==''){
+            $("#ts").html("手机号码或邮箱不能为空~");
+            is_show();
+            return false;
         }
         else{
-            var reg = /^[0-9A-Za-z]+$/;
+            /*用户名正则 只能输入5-20个以字母开头、可带数字、“_”的字串 */
+            var reg = /^[a-zA-Z]{1}([a-zA-Z0-9]|[_]){4,19}$/;
+            /*密码正则*/
+            var reg2 = /^[0-9A-Za-z]+$/;
+            /*手机号码正则*/
+            var reg3 = /^1[0-9]{10}/;
+            /*邮箱正则*/
+            var reg4 = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
             if(!reg.exec(u.val()))
             {
-                $("#ts").html("用户名错误");
+                $("#ts").html("用户名格式错误,5-20个以字母开头");
+                is_show();
+                return false;
+            }else if(!reg2.exec(p.val())){
+                $("#ts").html("密码格式错误");
+                is_show();
+                return false;
+            }else if(!reg3.exec(pe.val())){
+                $("#ts").html("手机号码格式错误");
+                is_show();
+                return false;
+            }else if(!reg4.exec(em.val())){
+                $("#ts").html("邮箱格式错误");
                 is_show();
                 return false;
             }

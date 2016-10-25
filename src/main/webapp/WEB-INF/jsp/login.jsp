@@ -61,8 +61,8 @@
     $(".btn").click(function(){
         is_hide();
     })
-    var u = $("input[name=username]");
-    var p = $("input[name=password]");
+    var u = $("input[name=userName]");
+    var p = $("input[name=userPwd]");
     $("#submit").live('click',function(){
         if(u.val() == '' || p.val() =='')
         {
@@ -71,10 +71,15 @@
             return false;
         }
         else{
-            var reg = /^[0-9A-Za-z]+$/;
+            var reg = /^[a-zA-Z]{1}([a-zA-Z0-9]|[_]){4,19}$/;
+            var reg2 = /^[0-9A-Za-z]+$/;
             if(!reg.exec(u.val()))
             {
                 $("#ts").html("用户名错误");
+                is_show();
+                return false;
+            }else if (!reg2.exec(p.val())){
+                $("#ts").html("密码错误");
                 is_show();
                 return false;
             }

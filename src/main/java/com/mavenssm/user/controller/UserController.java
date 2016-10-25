@@ -53,7 +53,7 @@ public class UserController {
             user = userService.checkLogin(user.getUserName(),user.getUserPwd());
             if (user == null) {
                 // 登录失败
-                return "redirect:loginPage";
+                return "error";
             }else{
                 model.addAttribute(user);
                 return "welcome";
