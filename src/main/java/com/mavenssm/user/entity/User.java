@@ -22,19 +22,12 @@ import java.util.Date;
 /*@Entity
 @Table(name = "t_user")*/
 public class User {
-    //@Column(name = "id")
     private Integer id;
-    //@Column(name = "user_name")
     private String userName;
-   // @Column(name = "user_phone")
     private String userPhone;
-   // @Column(name = "user_email")
     private String userEmail;
-   // @Column(name = "user_pwd")
     private String userPwd;
-   // @Column(name = "pwd_salt")
     private String pwdSalt;
-    //@Column(name = "create_time")
     private Date createTime;
     @Column(name = "modify_time")
     private Date modifyTime;
