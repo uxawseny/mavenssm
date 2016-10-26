@@ -31,13 +31,15 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * 用户登录
+     *
      * @param userName 用户名
      * @param userPwd  用户密码
      * @return 用户信息
      */
     public User checkLogin(String userName, String userPwd) {
-         user = userdao.getUserByName(userName);{
-            if (user != null){
+        user = userdao.getUserByName(userName);
+        {
+            if (user != null) {
                 if (user.getUserPwd().equals(userPwd))
                     return user;
             }
@@ -47,6 +49,7 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * 用户注册
+     *
      * @param user 用户
      */
     @Override
@@ -56,6 +59,7 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * 根据注册邮箱找回账号密码
+     *
      * @param email 用户邮箱
      * @return 账号密码
      */

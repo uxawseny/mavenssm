@@ -32,6 +32,7 @@ public class UserController {
 
     /**
      * 登录页面访问
+     *
      * @return 登录页面
      */
     @RequestMapping("/loginPage")
@@ -41,23 +42,24 @@ public class UserController {
 
     /**
      * 登录校验
-     * @param user 用户
+     *
+     * @param user  用户
      * @param model 模型
      * @return 登录成功/失败页面
      * @throws Exception
      */
     @RequestMapping("/login")
-    public String login(User user,Model model) throws Exception {
+    public String login(User user, Model model) throws Exception {
 
-            log.info("用户登录后台校验");
-            user = userService.checkLogin(user.getUserName(),user.getUserPwd());
-            if (user == null) {
-                // 登录失败
-                return "error";
-            }else{
-                model.addAttribute(user);
-                return "welcome";
-            }
+        log.info("用户登录后台校验");
+        user = userService.checkLogin(user.getUserName(), user.getUserPwd());
+        if (user == null) {
+            // 登录失败
+            return "error";
+        } else {
+            model.addAttribute(user);
+            return "welcome";
+        }
     }
 
     @RequestMapping("/registerPage")
@@ -67,35 +69,37 @@ public class UserController {
 
     /**
      * 用户注册
-     * @param user 用户
+     *
+     * @param user  用户
      * @param model 模型
      * @return 主页
      * @throws Exception
      */
     @RequestMapping("/register")
-    public String register(User user,Model model) throws Exception{
+    public String register(User user, Model model) throws Exception {
         log.info("用户注册");
-        if (user.getUserName().trim().length() > 0 || user.getUserPwd().trim().length() > 0 || user.getUserPhone().trim().length() > 0 || user.getUserEmail().trim().length() > 0){
+        if (user.getUserName().trim().length() > 0 || user.getUserPwd().trim().length() > 0 || user.getUserPhone().trim().length() > 0 || user.getUserEmail().trim().length() > 0) {
             userService.userRegister(user);
             return "welcome";
-        }else
+        } else
             return "error";
     }
 
     @RequestMapping("/findPwdPage")
-    public String findPwd() throws Exception{
+    public String findPwd() throws Exception {
         return "findPwdPage";
     }
 
     /**
      * 根据注册邮箱找回账号密码
-     * @param emil 注册邮箱
+     *
+     * @param emil  注册邮箱
      * @param model 模型
      * @return
      * @throws Exception
      */
     @RequestMapping("/findPwd")
-    public String findPwd(String emil,Model model) throws Exception{
+    public String findPwd(String emil, Model model) throws Exception {
         log.info("根据注册邮箱找回账号密码");
         userService.findPwd(emil);
         return "findPwd";

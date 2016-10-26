@@ -15,9 +15,11 @@ import java.util.Date;
  * userEmail 用户邮箱
  * userPwd  用户密码
  * pwdSalt  MD5盐
+ * state 用户激活状态,0未激活,1已激活,默认未激活
+ * code 验证码
  * createTime 创建时间
  * modifyTime 修改时间
- * isDelete 是否已删除
+ * isDelete 是否已删除 0未删除，1已删除
  */
 /*@Entity
 @Table(name = "t_user")*/
@@ -28,10 +30,10 @@ public class User {
     private String userEmail;
     private String userPwd;
     private String pwdSalt;
+    private Integer state;
+    private String code;
     private Date createTime;
-    @Column(name = "modify_time")
     private Date modifyTime;
-    @Column(name = "is_delete")
     private Integer isDelete;
 
     public Integer getId() {
@@ -82,6 +84,22 @@ public class User {
         this.pwdSalt = pwdSalt;
     }
 
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -115,6 +133,8 @@ public class User {
                 ", userEmail='" + userEmail + '\'' +
                 ", userPwd='" + userPwd + '\'' +
                 ", pwdSalt='" + pwdSalt + '\'' +
+                ", state=" + state +
+                ", code='" + code + '\'' +
                 ", createTime=" + createTime +
                 ", modifyTime=" + modifyTime +
                 ", isDelete=" + isDelete +

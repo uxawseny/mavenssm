@@ -17,25 +17,27 @@ public interface IUserService {
 
     /**
      * 用户登录
+     *
      * @param userName 用户名
      * @param userPwd  用户密码
      * @return 用户信息
      */
-    User checkLogin(String userName,String userPwd);
+    User checkLogin(String userName, String userPwd);
 
     /**
      * 用户注册
+     *
      * @param user 用户
      */
     void userRegister(User user);
 
     /**
      * 根据注册邮箱找回账户密码
+     *
      * @param email 用户邮箱
      * @return 账户密码
      */
     String findPwd(String email);
-
 
 
 }

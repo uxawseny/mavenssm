@@ -18,13 +18,13 @@ public interface UserDao {
     /**
      * 查询所有用户
      */
-   // @Select("SELECT userName, userPhone FROM User")
+    // @Select("SELECT userName, userPhone FROM User")
     List<User> getAllUser();
 
     /**
      * 按照用户名查询是否有该用户
      */
-   // @Select("SELECT * FROM t_user WHERE user_name=#{userName}")
+    // @Select("SELECT * FROM t_user WHERE user_name=#{userName}")
    /* @Results(
             {
                     @Result(id = true, column = "id", property = "id"),
@@ -42,12 +42,14 @@ public interface UserDao {
 
     /**
      * 增加用户
+     *
      * @param user 用户
      */
     void addUser(User user);
 
     /**
      * 根据邮箱找回用户密码
+     *
      * @param Email 用户邮箱
      * @return 账号密码
      */
