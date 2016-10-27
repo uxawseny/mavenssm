@@ -33,6 +33,13 @@ public interface UserDao {
     void addUser(User user);
 
     /**
+     * 查询用户名/邮箱账号是否已经存在
+     *
+     * @param user 用户
+     */
+    boolean queryUsername(User user);
+
+    /**
      * 根据邮箱找回用户密码
      *
      * @param Email 用户邮箱

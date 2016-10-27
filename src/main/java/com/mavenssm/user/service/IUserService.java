@@ -32,6 +32,13 @@ public interface IUserService {
     void userRegister(User user);
 
     /**
+     * 用户名/邮箱是否已经存在
+     *
+     * @param user 用户
+     */
+    boolean isUsernameExist(User user);
+
+    /**
      * 根据注册邮箱找回账户密码
      *
      * @param email 用户邮箱

@@ -26,7 +26,10 @@
     <insert id="addUser" parameterType="com.mavenssm.user.entity.User">
         INSERT INTO t_user (user_name,user_pwd,user_phone,user_email) VALUES(
         #{userName},#{userPwd},#{userPhone},#{userEmail})
-
     </insert>
+
+    <select id="queryUsername" resultMap="UserBaseMap">
+        if EXISTS (SELECT user_name,userEmail FROM t_user WHERE user_name=#{userName})
+    </select>
 
 </mapper>

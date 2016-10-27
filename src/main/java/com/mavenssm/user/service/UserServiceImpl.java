@@ -58,6 +58,16 @@ public class UserServiceImpl implements IUserService {
     }
 
     /**
+     * 用户名/邮箱是否已经存在
+     *
+     * @param user 用户
+     */
+    @Override
+    public boolean isUsernameExist(User user) {
+        return userdao.queryUsername(user);
+    }
+
+    /**
      * 根据注册邮箱找回账号密码
      *
      * @param email 用户邮箱
