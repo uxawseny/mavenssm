@@ -93,7 +93,7 @@ public class UserController {
      *
      * @param emil  注册邮箱
      * @param model 模型
-     * @return
+     * @return findPwd
      * @throws Exception
      */
     @RequestMapping("/findPwd")
