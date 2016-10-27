@@ -26,7 +26,7 @@
     <h1>SIGN IN AI SPACE</h1>
     <form action="${pageContext.request.contextPath}/user/login" method="post">
         <div>
-            <input type="text" id="username" name="userName" class="username" placeholder="Name" autocomplete="off"/>
+            <input type="text" id="username" name="userName" class="username" placeholder="Username or email address" autocomplete="off"/>
         </div>
         <div>
             <input type="password" id="password" name="userPwd" class="password" placeholder="Password" oncontextmenu="return false" onpaste="return false" />
@@ -73,10 +73,12 @@
         else{
             /*用户名正则 只能输入5-20个以字母开头、可带数字、“_”的字串 */
             var reg = /^[a-zA-Z]{1}([a-zA-Z0-9]|[_]){4,19}$/;
+            /*邮箱正则*/
+            var reg1 = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
             /*至少6位数字或字母*/
             var reg2 = /^[0-9A-Za-z]{6,}$/;
             /*/^[0-9A-Za-z]+$/;*/
-            if(!reg.exec(u.val()))
+            if(!(reg.exec(u.val()) || reg1.exec(u.val())))
             {
                 $("#ts").html("用户名错误");
                 is_show();

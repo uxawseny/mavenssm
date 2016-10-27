@@ -20,7 +20,7 @@
     </select>
      <!--根据用户名查询用户信息-->
     <select id="getUserByName" resultMap="UserBaseMap">
-        SELECT * FROM t_user WHERE user_name=#{userName}
+        SELECT * FROM t_user WHERE user_name=#{userName} OR user_email=#{userEmail}
     </select>
     <!--增加用户-->
     <insert id="addUser" parameterType="com.mavenssm.user.entity.User">
