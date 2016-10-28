@@ -52,8 +52,8 @@ public class UserServiceImpl implements IUserService {
      */
     @Override
     public void userRegister(User user) {
-            userdao.addUser(user);
-       // return null;
+        userdao.addUser(user);
+        // return null;
     }
 
     /**
@@ -63,11 +63,11 @@ public class UserServiceImpl implements IUserService {
      */
     @Override
     public List<User> isUsernameExist(User user) {
-        List<User> list= userdao.queryUsername(user);
+        List<User> list = userdao.queryUsername(user);
         if (list != null && list.size() > 0) {
             //如果list不为空，则表示有同名存在，返回null.
             return null;
-        }else
+        } else
             return list;
 
     }
