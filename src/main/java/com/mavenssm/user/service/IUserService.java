@@ -34,9 +34,9 @@ public interface IUserService {
     /**
      * 用户名/邮箱是否已经存在
      *
-     * @param user 用户
+     * @param
      */
-    boolean isUsernameExist(User user);
+    Integer isUsernameExist(User user);
 
     /**
      * 根据注册邮箱找回账户密码

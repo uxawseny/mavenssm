@@ -52,17 +52,23 @@ public class UserServiceImpl implements IUserService {
      */
     @Override
     public void userRegister(User user) {
-        userdao.addUser(user);
+            userdao.addUser(user);
+       // return null;
     }
 
     /**
      * 用户名/邮箱是否已经存在
      *
-     * @param user 用户
+     * @param
      */
     @Override
-    public boolean isUsernameExist(User user) {
-        return userdao.queryUsername(user);
+    public Integer isUsernameExist(User user) {
+        user = userdao.queryUsername(user);
+        if (user !=null) {
+            return null;
+        }else
+            return 1;
+
     }
 
     /**

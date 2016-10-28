@@ -14,11 +14,11 @@
         <result column="is_delete" property="isDelete" jdbcType="SMALLINT"/>
     </resultMap>
 
-     <!--查询所有用户信息-->
+    <!--查询所有用户信息-->
     <select id="getAllUser" resultMap="UserBaseMap">
         SELECT * FROM t_user
     </select>
-     <!--根据用户名查询密码-->
+    <!--根据用户名查询密码-->
     <select id="getUserByName" resultMap="UserBaseMap">
         SELECT user_pwd FROM t_user WHERE user_name=#{userName} OR user_email=#{userEmail}
     </select>
@@ -27,9 +27,9 @@
         INSERT INTO t_user (user_name,user_pwd,user_phone,user_email) VALUES(
         #{userName},#{userPwd},#{userPhone},#{userEmail})
     </insert>
-
+    <!--查询用户名是否已经存在-->
     <select id="queryUsername" resultMap="UserBaseMap">
-        if EXISTS (SELECT user_name,userEmail FROM t_user WHERE user_name=#{userName})
+        SELECT COUNT(user_name) FROM t_user WHERE user_name =  #{userName} OR user_email = #{userEmail}
     </select>
 
 </mapper>

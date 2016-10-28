@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -77,10 +78,14 @@ public class UserController {
     public String register(User user, Model model) throws Exception {
         log.info("用户注册");
         if (user.getUserName().trim().length() > 0 || user.getUserPwd().trim().length() > 0 || user.getUserPhone().trim().length() > 0 || user.getUserEmail().trim().length() > 0) {
-            userService.userRegister(user);
-            return "welcome";
-        } else
+            if (userService.isUsernameExist(user) != null) {
+                userService.userRegister(user);
+                return "welcome";
+            }
+        } else {
             return "error";
+        }
+        return "error";
     }
 
     @RequestMapping("/findPwdPage")
