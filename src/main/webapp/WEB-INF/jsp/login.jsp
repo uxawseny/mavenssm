@@ -59,7 +59,7 @@
 <script src="${pageContext.request.contextPath}/js/supersized.3.2.7.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/supersized-init.js"></script>
 <%--校验js--%>
-<script src="${pageContext.request.contextPath}/js/validate.js"></script>
+<script src="${pageContext.request.contextPath}/js/loginValidate.js"></script>
 
 </body>
 
