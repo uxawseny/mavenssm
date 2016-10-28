@@ -32,7 +32,7 @@ public interface IUserDao {
      *
      * @param user 用户
      */
-    User queryUsername(User user);
+    List<User> queryUsername(User user);
 
     /**
      * 根据邮箱找回用户密码

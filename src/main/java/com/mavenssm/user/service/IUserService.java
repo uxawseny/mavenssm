@@ -36,7 +36,7 @@ public interface IUserService {
      *
      * @param
      */
-    Integer isUsernameExist(User user);
+    List<User> isUsernameExist(User user);
 
     /**
      * 根据注册邮箱找回账户密码

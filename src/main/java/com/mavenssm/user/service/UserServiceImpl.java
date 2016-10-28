@@ -62,12 +62,12 @@ public class UserServiceImpl implements IUserService {
      * @param
      */
     @Override
-    public Integer isUsernameExist(User user) {
-        user = userdao.queryUsername(user);
-        if (user !=null) {
+    public List<User> isUsernameExist(User user) {
+        List<User> list= userdao.queryUsername(user);
+        if (list != null && list.size() > 0) {
             return null;
         }else
-            return 1;
+            return list;
 
     }
 
