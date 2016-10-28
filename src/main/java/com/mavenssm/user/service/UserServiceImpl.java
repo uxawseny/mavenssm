@@ -65,6 +65,7 @@ public class UserServiceImpl implements IUserService {
     public List<User> isUsernameExist(User user) {
         List<User> list= userdao.queryUsername(user);
         if (list != null && list.size() > 0) {
+            //如果list不为空，则表示有同名存在，返回null.
             return null;
         }else
             return list;
