@@ -27,6 +27,7 @@
     <form action="${pageContext.request.contextPath}/user/register" method="post">
         <div>
             <input type="text" id="userName" name="userName" class="userName" placeholder="Name" autocomplete="off"/>
+            <span id="userNamespan" ></span>
         </div>
         <div>
             <input type="password" id="password" name="userPwd" class="password" placeholder="Password" oncontextmenu="return false" onpaste="return false" />
@@ -36,6 +37,7 @@
         </div>
         <div>
             <input type="text" id="userEmail" name="userEmail" class="userEmail" placeholder="Email" oncontextmenu="return false" onpaste="return false" />
+            <span id="userEmailspan" ></span>
         </div>
         <button id="submit" type="submit">Sign up for AI space</button>
     </form>
@@ -104,7 +106,7 @@
             }
         }
     });
-    window.onload = function()
+    function func1()
     {
         $(".connect p").eq(0).animate({"left":"0%"}, 600);
         $(".connect p").eq(1).animate({"left":"0%"}, 400);
@@ -112,6 +114,69 @@
     function is_hide(){ $(".alert").animate({"top":"-40%"}, 300) }
     function is_show(){ $(".alert").show().animate({"top":"45%"}, 300) }
 </script>
+
+<script type="text/javascript">
+    /* 创建异步对象 */
+    function createXMLHttpRequest(){
+        try {
+            return new XMLHttpRequest();//大多数浏览器
+        } catch (e) {
+            try {
+                return ActvieXObject("Msxml2.XMLHTTP");//IE6.0
+            } catch (e) {
+                try {
+                    return ActvieXObject("Microsoft.XMLHTTP");//IE5.5及更早版本
+                } catch (e) {
+                    alert("浏览器不支持！");
+                    throw e;
+                }
+            }
+        }
+    }
+
+    function func2() {
+        // 获取文本框，给它的失去焦点事件注册监听
+        var userEle = document.getElementById("username");
+        userEle.onblur = function() {
+            //1.得到异步对象
+            var xmlHttp = createXMLHttpRequest();
+            //2.打开连接
+            xmlHttp.open("POST", "/ajaxDemo/AjaxRegister", true);
+            //3.设置请求头：Content-Type
+            xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            //4.发送请求，给出请求体
+            xmlHttp.send("username=" + userEle.value);
+
+            //5.给xmlHttp的onreadystatechange事件注册监听
+            xmlHttp.onreadystatechange = function() {
+                if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {//双重判断
+                    //获取服务器的响应，判断是否为1
+                    // 是：获取span，添加内容：“用户名已被注册”
+                    var text = xmlHttp.responseText;
+                    var emailSpan = document.getElementById("userNamespan");
+                    var nameSpan = document.getElementById("userNamespan");
+                    if(text == "1") {
+                        //得到span元素
+                        emailSpan.innerHTML = "用户名已被注册！";
+                    } else if (text == "2"){
+                        nameSpan.innerHTML = "邮箱已被注册！";
+                    }
+                }
+            };
+        };
+    };
+
+
+
+</script>
+<script type="text/javascript">
+    window.onload=function(){
+        func1();
+        func2();
+    }
+</script>
+
+
 </body>
 
 </html>
