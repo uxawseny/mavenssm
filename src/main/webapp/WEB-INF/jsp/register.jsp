@@ -2,26 +2,21 @@
 <html lang="en" class="no-js">
 
 <head>
-
     <meta charset="utf-8">
     <title>I AM NOT AI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="${pageContext.request.contextPath}/images/ico2.ico"/>
-
     <!-- CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reset.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/supersized.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <script src="${pageContext.request.contextPath}/js/html5.js"></script>
-
 </head>
 
 <body oncontextmenu="return false">
-
 <div class="page-container">
     <h1>JOIN IN AI SPACE</h1>
     <form action="${pageContext.request.contextPath}/user/register" method="post">
@@ -67,5 +62,4 @@
 <script src="${pageContext.request.contextPath}/js/registerValidate.js"></script>
 
 </body>
-
 </html>
