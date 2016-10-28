@@ -1,19 +1,14 @@
 package com.mavenssm.user.dao;
 
 import com.mavenssm.user.entity.User;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
-
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
  * UserDao
  */
 @Repository("userDao")
-public interface UserDao {
+public interface IUserDao {
 
     /**
      * 查询所有用户

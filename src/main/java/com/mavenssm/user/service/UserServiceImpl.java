@@ -1,9 +1,7 @@
 package com.mavenssm.user.service;
 
-import com.mavenssm.user.dao.UserDao;
+import com.mavenssm.user.dao.IUserDao;
 import com.mavenssm.user.entity.User;
-import com.sun.org.apache.bcel.internal.generic.RET;
-import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,7 +15,7 @@ import java.util.List;
 @Transactional(rollbackFor = Exception.class)
 public class UserServiceImpl implements IUserService {
     @Resource
-    private UserDao userdao;
+    private IUserDao userdao;
     private User user;
 
     /**
