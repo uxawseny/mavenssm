@@ -53,6 +53,7 @@
     </div>
 </div>
 
+<%--以下js不要放在头文件--%>
 <!-- Javascript -->
 <script src="${pageContext.request.contextPath}/js/jquery-1.6.4.min.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/js/supersized.3.2.7.min.js"></script>
