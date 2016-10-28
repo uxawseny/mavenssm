@@ -29,7 +29,7 @@
     </insert>
     <!--查询用户名是否已经存在-->
     <select id="queryUsername" resultMap="UserBaseMap">
-        SELECT * FROM t_user WHERE user_name =  #{userName} OR user_email = #{userEmail}
+        SELECT user_name,user_email FROM t_user WHERE user_name =  #{userName} OR user_email = #{userEmail}
     </select>
 
 </mapper>
