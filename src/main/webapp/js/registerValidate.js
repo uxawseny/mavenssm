@@ -1,13 +1,19 @@
+/*正则校验*/
 $(".btn").click(function () {
     is_hide();
 })
 var u = $("input[name=userName]");
 var p = $("input[name=userPwd]");
+var rp = $("input[name=repassword]");
 var pe = $("input[name=userPhone]");
 var em = $("input[name=userEmail]");
 $("#submit").live('click', function () {
     if (u.val() == '' || p.val() == '') {
         $("#ts").html("用户名或密码不能为空~");
+        is_show();
+        return false;
+    } else if (p.val() != rp.val()) {
+        $("#ts").html("两次密码不一致");
         is_show();
         return false;
     } else if (pe.val() == '' || em.val() == '') {
@@ -54,6 +60,8 @@ function is_show() {
     $(".alert").show().animate({"top": "45%"}, 300)
 }
 
+/*是否已经存在校验*/
+
 /* 创建异步对象 */
 function createXMLHttpRequest() {
     try {
@@ -74,16 +82,16 @@ function createXMLHttpRequest() {
 
 function funcIsExist() {
     // 获取文本框，给它的失去焦点事件注册监听
-    var userEle = document.getElementById("username");
+    var userEle = document.getElementById("userName");
     userEle.onblur = function () {
         //1.得到异步对象
         var xmlHttp = createXMLHttpRequest();
         //2.打开连接
-        xmlHttp.open("POST", "/ajaxDemo/AjaxRegister", true);
+        xmlHttp.open("POST", "/mysite/registerServlet", true);
         //3.设置请求头：Content-Type
         xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         //4.发送请求，给出请求体
-        xmlHttp.send("username=" + userEle.value);
+        xmlHttp.send("userName=" + userEle.value);
 
         //5.给xmlHttp的onreadystatechange事件注册监听
         xmlHttp.onreadystatechange = function () {
@@ -91,20 +99,50 @@ function funcIsExist() {
                 //获取服务器的响应，判断是否为1
                 // 是：获取span，添加内容：“用户名已被注册”
                 var text = xmlHttp.responseText;
-                var emailSpan = document.getElementById("userNamespan");
-                var nameSpan = document.getElementById("userNamespan");
+                var span = document.getElementById("userNamespan");
                 if (text == "1") {
                     //得到span元素
-                    emailSpan.innerHTML = "用户名已被注册！";
-                } else if (text == "2") {
-                    nameSpan.innerHTML = "邮箱已被注册！";
+                    span.innerHTML = "用户名已被注册！";
+                } else if (text == "0") {
+                    span.innerHTML = "该用户名可用";
+                } else {
+                    span.innerHTML = "用户名不能为空";
                 }
             }
         };
     };
 };
 
+/*
+ function checkForm() {
 
+ // 校验用户名:
+ // 获得用户名文本框的值:
+ var username = document.getElementById("userName").value;
+ if (username == null || username == '') {
+ alert("用户名不能为空!");
+ return false;
+ }
+ // 校验密码:
+ // 获得密码框的值:
+ var password = document.getElementById("password").value;
+ if (password == null || password == '') {
+ alert("密码不能为空!");
+ return false;
+ }
+
+ // 校验确认密码:-------待做
+ var repassword = document.getElementById("repassword").value;
+ if (repassword != password) {
+ $("#ts").html("两次密码不一致~");
+ is_show();
+ return false;
+ }
+
+ }
+ */
+
+/*同时加载两个window.onload函数*/
 window.onload = function () {
     funcIsRight();
     funcIsExist();

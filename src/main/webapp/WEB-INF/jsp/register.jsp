@@ -29,6 +29,10 @@
                    oncontextmenu="return false" onpaste="return false"/>
         </div>
         <div>
+            <input type="password" id="repassword" name="repassword" class="repassword" placeholder="Repassword"
+                   oncontextmenu="return false" onpaste="return false"/>
+        </div>
+        <div>
             <input type="text" id="userPhone" name="userPhone" class="userPhone" placeholder="Phone"
                    oncontextmenu="return false" onpaste="return false"/>
         </div>
