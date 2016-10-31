@@ -29,7 +29,7 @@
                    oncontextmenu="return false" onpaste="return false"/>
         </div>
         <div>
-            <input type="password" id="repassword" name="repassword" class="repassword" placeholder="Repassword"
+            <input type="password" id="repassword" name="repassword" class="repassword" placeholder="RePassword"
                    oncontextmenu="return false" onpaste="return false"/>
         </div>
         <div>
