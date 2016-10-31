@@ -52,12 +52,12 @@ public class UserController {
 
         log.info("用户登录后台校验");
         user = userService.checkLogin(user.getUserName(), user.getUserPwd());
-        if (user == null) {
-            // 登录失败
-            return "error";
-        } else {
+        if (user != null) {
+            // 登录成功
             model.addAttribute(user);
             return "welcome";
+        } else {
+            return "error";
         }
     }
 
