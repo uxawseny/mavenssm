@@ -56,7 +56,7 @@ public class UserController {
             // 登录成功
             model.addAttribute(user);
             return "welcome";
-        } else {
+        } else {//登录失败
             return "error";
         }
     }
