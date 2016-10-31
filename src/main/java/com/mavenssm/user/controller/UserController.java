@@ -51,7 +51,7 @@ public class UserController {
     public String login(User user, Model model) throws Exception {
 
         log.info("用户登录后台校验");
-        user = userService.checkLogin(user.getUserName(), user.getUserPwd());
+        user = userService.checkLogin(user.getUserName().trim(), user.getUserPwd().trim());
         if (user != null) {
             // 登录成功
             model.addAttribute(user);
