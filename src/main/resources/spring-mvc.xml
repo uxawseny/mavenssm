@@ -19,8 +19,16 @@
             </list>
         </property>
     </bean>
-    <!-- 启动SpringMVC的注解功能，完成请求和注解POJO的映射 -->
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+
+    <!-- 注解映射器 -->
+    <!--在spring3.1之前注解映射器org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping-->
+    <!--3.1之后注解映射器-->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+
+    <!--注解适配器-->
+    <!--Spring3.1之前注解适配器org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter-->
+    <!--3.1之后注解适配器--><!-- 启动SpringMVC的注解功能，完成请求和注解POJO的映射 -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
             <list>
                 <ref bean="mappingJacksonHttpMessageConverter"/> <!-- JSON转换器 -->
