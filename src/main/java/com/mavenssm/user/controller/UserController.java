@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import utils.Md5SaltTool;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -51,7 +52,17 @@ public class UserController {
     public String login(User user, Model model) throws Exception {
 
         log.info("用户登录后台校验");
+
+        //String encryptedPwd = Md5SaltTool.getEncryptedPwd(user.getUserPwd().trim());
+
+        //Md5SaltTool.validPassword(user.getUserName(),user.getUserPwd());
+
         user = userService.checkLogin(user.getUserName().trim(), user.getUserPwd().trim());
+        //以再加密方式核对密码是否一致
+
+
+
+
         if (user != null) {
             // 登录成功
             model.addAttribute(user);
@@ -79,6 +90,9 @@ public class UserController {
         log.info("用户注册");
         if (user.getUserName().trim().length() > 0 || user.getUserPwd().trim().length() > 0 || user.getUserPhone().trim().length() > 0 || user.getUserEmail().trim().length() > 0) {
             if (userService.isUsernameExist(user) != null) {
+                //加密加盐处理
+                String encryptedPwd = Md5SaltTool.getEncryptedPwd(user.getUserPwd());
+                user.setUserPwd(encryptedPwd);
                 userService.userRegister(user);
                 return "welcome";
             }
