@@ -53,23 +53,20 @@ public class UserController {
 
         log.info("用户登录后台校验");
 
-        //String encryptedPwd = Md5SaltTool.getEncryptedPwd(user.getUserPwd().trim());
-
-        //Md5SaltTool.validPassword(user.getUserName(),user.getUserPwd());
-
+        String password = user.getUserPwd();
         user = userService.checkLogin(user.getUserName().trim(), user.getUserPwd().trim());
-        //以再加密方式核对密码是否一致
-
-
-
-
+        //校验密码是否一致
         if (user != null) {
-            // 登录成功
-            model.addAttribute(user);
-            return "welcome";
-        } else {//登录失败
+            String pwdInDb = user.getUserPwd();
+            boolean isRight = Md5SaltTool.validPassword(password, pwdInDb);
+            if (isRight) {
+                // 登录成功
+                model.addAttribute(user);
+                return "welcome";
+            } else
+                return "error";
+        } else
             return "error";
-        }
     }
 
     @RequestMapping("/registerPage")

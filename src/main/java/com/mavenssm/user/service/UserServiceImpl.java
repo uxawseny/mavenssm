@@ -36,13 +36,12 @@ public class UserServiceImpl implements IUserService {
      */
     public User checkLogin(String userName, String userPwd) {
         user = userdao.getUserByName(userName);
-        {
-            if (user != null) {
-                if (user.getUserPwd().equals(userPwd))
-                    return user;
-            }
+        if (user != null) {
+            //if (user.getUserPwd().equals(userPwd))
+            return user;
+        } else {
+            return null;
         }
-        return null;
     }
 
     /**

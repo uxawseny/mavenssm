@@ -10,7 +10,7 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 
 /**
- * md5 salt工具类
+ * md5 salt加密 校验 工具类
  */
 public class Md5SaltTool {
 
