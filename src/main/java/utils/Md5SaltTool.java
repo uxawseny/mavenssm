@@ -56,9 +56,9 @@ public class Md5SaltTool {
     /**
      * 验证口令是否合法
      *
-     * @param password
-     * @param passwordInDb
-     * @return
+     * @param password     前台提交未加密的密码
+     * @param passwordInDb 数据库中获取的已加密的密码
+     * @return 是否一致
      * @throws NoSuchAlgorithmException
      * @throws UnsupportedEncodingException
      */
@@ -95,8 +95,8 @@ public class Md5SaltTool {
     /**
      * 获得加密后的16进制形式口令
      *
-     * @param password
-     * @return
+     * @param password 未加密密码
+     * @return 已加密过处理过的密码值
      * @throws NoSuchAlgorithmException
      * @throws UnsupportedEncodingException
      */
