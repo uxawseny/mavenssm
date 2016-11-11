@@ -1,6 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
-<html>
-<head xmlns="http://java.sun.com/jsf/html">
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>点击切换</title>
     <style type="text/css">
@@ -62,8 +61,8 @@
     <script type="text/javascript">
         function setTab(name, cursel) {
             cursel_0 = cursel;
-            <!-- &lt;= 转义<= -->
-            for (var i = 1; i &lt;= links_len; i++) {
+            <!--暂时不能使用&lt;转义符代替<号,浏览器不识别 -->
+            for (var i = 1; i <= links_len; i++) {
                 var menu = document.getElementById(name + i);
                 var menudiv = document.getElementById("con_" + name + "_" + i);
                 if (i == cursel) {
@@ -86,10 +85,10 @@
         var ScrollTime = 3000;//循环周期（毫秒）
         var links_len, iIntervalId;
         onload = function () {
-            var links = document.getElementById("tab1").getElementsByTagName('li')
+            var links = document.getElementById("tab1").getElementsByTagName('li');
             links_len = links.length;
-            <!-- &lt; 转义< -->
-            for (var i = 0; i &lt; links_len; i++) {
+            <!--暂时不能使用&lt;转义符代替<号 -->
+            for (var i = 0; i < links_len; i++) {
                 links[i].onmouseover = function () {
                     clearInterval(iIntervalId);
                     this.onmouseout = function () {
@@ -101,7 +100,6 @@
                 clearInterval(iIntervalId);
                 this.onmouseout = function () {
                     iIntervalId = setInterval(Next, ScrollTime);
-                    ;
                 }
             }
             setTab(name_0, cursel_0);
@@ -119,12 +117,11 @@
     </div>
     <div class="menudiv">
         <div id="con_one_1" align='center'>
-            <h4 style="color:#7e807d">内容区域1111111111111111111111</h4>
+            <h4 style="color:red">内容区域1111111111111111111111</h4>
         </div>
         <div id="con_one_2" style="display:none;" align='center'>
-            <h4 style="color:#7e807d">内容区域22222222222222222222222</h4>
+            <h4 style="color:red">内容区域22222222222222222222222</h4>
         </div>
     </div>
 </div>
 </body>
-</html>
