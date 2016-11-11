@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+<head xmlns="http://java.sun.com/jsf/html">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>点击切换</title>
+    <style type="text/css">
+        * {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden
+        }
+
+        .tab1 {
+            width: 1001px;
+            border-top: #A8C29F solid 1px;
+            border-bottom: #A8C29F solid 1px;
+            margin: 50px 200px;
+        }
+
+        .menu {
+            width: 1000px;
+            background: #eee;
+            height: 28px;
+            border-right: #A8C29F solid 1px;
+            border-bottom: #A8C29F solid 1px;
+        }
+
+        li {
+            float: left;
+            width: 499px;
+            text-align: center;
+            line-height: 28px;
+            height: 28px;
+            cursor: pointer;
+            border-left: #A8C29F solid 1px;
+            color: #666;
+            font-size: 14px;
+            overflow: hidden
+        }
+
+        .menudiv {
+            width: 999px;
+            height: 500px;
+            border-left: #A8C29F solid 1px;
+            border-right: #A8C29F solid 1px;
+            border-top: 0;
+            background: #fefefe
+        }
+
+        .menudiv div {
+            padding: 15px;
+            line-height: 28px;
+        }
+
+        .off {
+            background: #E0E2EB;
+            color: #336699;
+            font-weight: bold
+        }
+    </style>
+    <script type="text/javascript">
+        function setTab(name, cursel) {
+            cursel_0 = cursel;
+            <!-- &lt;= 转义<= -->
+            for (var i = 1; i &lt;= links_len; i++) {
+                var menu = document.getElementById(name + i);
+                var menudiv = document.getElementById("con_" + name + "_" + i);
+                if (i == cursel) {
+                    menu.className = "";//加载页面后是否自动切换显示
+                    menudiv.style.display = "block";
+                }
+                else {
+                    menu.className = "off";
+                    menudiv.style.display = "none";
+                }
+            }
+        }
+        function Next() {
+            cursel_0++;
+            if (cursel_0 > links_len)cursel_0 = 1
+            setTab(name_0, cursel_0);
+        }
+        var name_0 = 'one';
+        var cursel_0 = 1;
+        var ScrollTime = 3000;//循环周期（毫秒）
+        var links_len, iIntervalId;
+        onload = function () {
+            var links = document.getElementById("tab1").getElementsByTagName('li')
+            links_len = links.length;
+            <!-- &lt; 转义< -->
+            for (var i = 0; i &lt; links_len; i++) {
+                links[i].onmouseover = function () {
+                    clearInterval(iIntervalId);
+                    this.onmouseout = function () {
+                        iIntervalId = setInterval(Next, ScrollTime);
+                    }
+                }
+            }
+            document.getElementById("con_" + name_0 + "_" + links_len).parentNode.onmouseover = function () {
+                clearInterval(iIntervalId);
+                this.onmouseout = function () {
+                    iIntervalId = setInterval(Next, ScrollTime);
+                    ;
+                }
+            }
+            setTab(name_0, cursel_0);
+            iIntervalId = setInterval(Next, ScrollTime);
+        }
+    </script>
+</head>
+<body>
+<div class="tab1" id="tab1">
+    <div class="menu"><!--style="display:none;"-->
+        <ul>
+            <li id="one1" onclick="setTab('one',1)">内容1</li>
+            <li id="one2" onclick="setTab('one',2)">内容2</li>
+        </ul>
+    </div>
+    <div class="menudiv">
+        <div id="con_one_1" align='center'>
+            <h4 style="color:#7e807d">内容区域1111111111111111111111</h4>
+        </div>
+        <div id="con_one_2" style="display:none;" align='center'>
+            <h4 style="color:#7e807d">内容区域22222222222222222222222</h4>
+        </div>
+    </div>
+</div>
+</body>
+</html>
