@@ -6,6 +6,7 @@
     <link rel="icon" href="${pageContext.request.contextPath}/images/ico2.ico" />
 </head>
 <body>
+您好！${model.getAttratube.userName}
 <body>
 <h1>执行成功！</h1>
 <div class="container">
