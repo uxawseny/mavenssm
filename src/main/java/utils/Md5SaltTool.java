@@ -20,8 +20,8 @@ public class Md5SaltTool {
     /**
      * 将16进制字符串转换成字节数组
      *
-     * @param hex
-     * @return
+     * @param hex 十六进制字符串
+     * @return 字节数组
      */
     public static byte[] hexStringToByte(String hex) {
         int len = (hex.length() / 2);
@@ -38,8 +38,8 @@ public class Md5SaltTool {
     /**
      * 将指定byte数组转换成16进制字符串
      *
-     * @param b
-     * @return
+     * @param b 指定字节数组
+     * @return 十六进制字符串
      */
     public static String byteToHexString(byte[] b) {
         StringBuffer hexString = new StringBuffer();
